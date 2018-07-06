@@ -1,0 +1,6 @@
+name: Analytics
+main: takesi\analytics
+version: 2.2
+api: [3.0.0]
+load: POSTWORLD
+author: takesi
