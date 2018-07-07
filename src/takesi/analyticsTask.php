@@ -29,7 +29,7 @@ class AnalyticsTask extends PluginTask
         //1530802800 2018/07/06 00:00:00
         //1530889200 2018/07/07 00:00:00
         //So 1 day =86400s
-        if (time() % 1530866100 == 0) {
+        if (time() % 86400 == 0) {
             $players = Server::getInstance()->getOnlinePlayers();
             $this->plugin->getLogger()->info("changing day is now going...");
             foreach ($players as $player) {

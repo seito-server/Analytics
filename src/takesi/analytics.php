@@ -25,9 +25,9 @@ class analytics extends PluginBase implements Listener
         $this->db = new \SQLite3($this->getDataFolder() . "/logindata.sqlite3");
         $this->db->exec(
             "CREATE TABLE IF NOT EXISTS playerdata(
-			name TEXT NOT NULL PRIMARY KEY,
+			name TEXT NOT NULL,
 			date TEXT NOT NULL,
-			time TEXT NOT NULL
+			time INTEGER NOT NULL
 			)"
         );
         $this->getServer()->getScheduler()->scheduleRepeatingTask(new analyticsTask($this), 20);
