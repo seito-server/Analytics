@@ -39,11 +39,12 @@ class AnalyticsTask extends PluginTask
                 if ($this->plugin->isExists($player->getName(), date("Ymd", time() - 5000))) {
                     $data = $this->plugin->getPlayerdata($player->getName(), date("Ymd", time() - 5000));
                     var_dump($data);
-                    $this->plugin->updatePlayerdata($player->getName(), $data["date"], (((int) $data["time"]) + ((int) $difftime)), date("Ymd", time() - 5000));
+                    $this->plugin->updatePlayerdata($player->getName(), $data["date"], (((int) $data["time"]) + ((int) $difftime)));
                     $this->plugin->getLogger()->info("So he or she stayed all in this server for " . (((int) $data["time"]) + ((int) $difftime)) . "s today.");
                 } else {
                     $this->plugin->createPlayerdata($player->getName(), date("Ymd", time() - 5000), $difftime);
                 }
+                unset($this->pair[$player->getName()]);
                 $this->plugin->pair[$player->getName()] = time();
             }
         }
